@@ -12,17 +12,15 @@ import Foundation
  An input set defines the input keys on a keyboard.
  
  Input sets can be used to create a ``KeyboardLayout`` which
- define the full set of keys, including the system keys that
- surround the input rows, a button action row , the size and
- properties of each key, etc.
+ defines the full set of keys, that often include extra keys
+ around the input rows and a bottom row. Layout also specify
+ the size, insets and properties of each key.
  
- KeyboardKit has a couple of static input sets and input set
- builders, such as ``qwerty``, ``english``, ``englishNumeric``,
- ``englishSymbolic``, ``standardNumeric(currency:)``, etc.
- 
- KeyboardKit Pro unlocks additional input sets like `qwertz`,
- `azerty`, as well as alphabetic, numeric and symbolic input
- sets for all ``KeyboardLocale``s that your license includes.
+ KeyboardKit has a couple of pre-defined input sets, such as
+ standard ``qwerty``, a ``standardNumeric(currency:)`` and a
+ ``standardSymbolic(currencies:)``. KeyboardKit Pro provides
+ even more input sets like `qwertz` and `azerty`, as well as
+ alphabetic, numeric and symbolic input sets for all locales.
  
  > v8.0: This protocol will be converted to a `struct`, that
  will replace the various input set types with a single type.
