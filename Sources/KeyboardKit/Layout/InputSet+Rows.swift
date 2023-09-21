@@ -1,5 +1,5 @@
 //
-//  InputSetRow.swift
+//  InputSet+Rows.swift
 //  KeyboardKit
 //
 //  Created by Daniel Saidi on 2021-02-03.
@@ -8,23 +8,16 @@
 
 import Foundation
 
-/**
- This typealias represents a row of input set items.
- 
- > v8.0: This type will be moved into ``InputSet`` when it's
- converted to a struct.
- */
-public typealias InputSetRow = [InputSetItem]
+public extension InputSet {
+    
+    /// This typealias represents a row of input set items.
+    typealias Row = [InputSetItem]
+    
+    /// This typealias represents a list of input set rows.
+    typealias Rows = [Row]
+}
 
-/**
- This typealias represents a list of input set rows.
- 
- > v8.0: This type will be moved into ``InputSet`` when it's
- converted to a struct.
- */
-public typealias InputSetRows = [InputSetRow]
-
-public extension InputSetRow {
+public extension InputSet.Row {
     
     /**
      Create an input row from a string, where each character
@@ -136,7 +129,7 @@ public extension InputSetRow {
     }
 }
 
-public extension InputSetRows {
+public extension InputSet.Rows {
 
     /**
      Get all input characters for a certain keyboard case.

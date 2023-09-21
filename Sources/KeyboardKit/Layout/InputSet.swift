@@ -24,13 +24,13 @@ import Foundation
  */
 public struct InputSet: Equatable {
     
-    /// Create an input set.
-    public init(rows: InputSetRows) {
+    /// Create an input set with rows.
+    public init(rows: Rows) {
         self.rows = rows
     }
 
     /// The rows in the input set.
-    public var rows: InputSetRows
+    public var rows: Rows
 }
 
 public extension InputSet {

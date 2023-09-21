@@ -69,7 +69,7 @@ open class SystemKeyboardLayoutProvider: KeyboardLayoutProvider {
     
     /// Get actions for the provided rows and context.
     open func actions(
-        for rows: InputSetRows,
+        for rows: InputSet.Rows,
         context: KeyboardContext
     ) -> KeyboardAction.Rows {
         let characters = actionCharacters(for: rows, context: context)
@@ -78,7 +78,7 @@ open class SystemKeyboardLayoutProvider: KeyboardLayoutProvider {
     
     /// Get action chars for the provided rows and context.
     open func actionCharacters(
-        for rows: InputSetRows,
+        for rows: InputSet.Rows,
         context: KeyboardContext
     ) -> [[String]] {
         switch context.keyboardType {
@@ -88,7 +88,7 @@ open class SystemKeyboardLayoutProvider: KeyboardLayoutProvider {
     }
     
     /// Get input rows for the provided context.
-    open func inputRows(for context: KeyboardContext) -> InputSetRows {
+    open func inputRows(for context: KeyboardContext) -> InputSet.Rows {
         switch context.keyboardType {
         case .numeric: return numericInputSet.rows
         case .symbolic: return symbolicInputSet.rows

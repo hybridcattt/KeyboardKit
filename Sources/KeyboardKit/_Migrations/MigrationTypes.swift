@@ -50,6 +50,12 @@ public typealias HapticFeedbackEngine = HapticFeedback.Engine
 @available(*, deprecated, renamed: "Callouts.InputCallout")
 public typealias InputCallout = Callouts.InputCallout
 
+@available(*, deprecated, renamed: "InputSet.Row")
+public typealias InputSetRow = InputSet.Row
+
+@available(*, deprecated, renamed: "InputSet.Row")
+public typealias InputSetRows = InputSet.Rows
+
 @available(*, deprecated, renamed: "Gestures.KeyboardGesture")
 public typealias KeyboardGesture = Gestures.KeyboardGesture
 
