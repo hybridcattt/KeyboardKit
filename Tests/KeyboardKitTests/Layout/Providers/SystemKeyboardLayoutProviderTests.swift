@@ -19,9 +19,9 @@ class SystemKeyboardLayoutProviderTests: XCTestCase {
         context = KeyboardContext()
         layoutConfig = .standard(for: context)
         provider = SystemKeyboardLayoutProvider(
-            alphabeticInputSet: AlphabeticInputSet(rows: [["a", "b", "c"]].map(InputSetRow.init(chars:))),
-            numericInputSet: NumericInputSet(rows: [["1", "2", "3"]].map(InputSetRow.init(chars:))),
-            symbolicInputSet: SymbolicInputSet(rows: [[",", ".", "-"]].map(InputSetRow.init(chars:)))
+            alphabeticInputSet: InputSet(rows: [["a", "b", "c"]].map(InputSetRow.init(chars:))),
+            numericInputSet: InputSet(rows: [["1", "2", "3"]].map(InputSetRow.init(chars:))),
+            symbolicInputSet: InputSet(rows: [[",", ".", "-"]].map(InputSetRow.init(chars:)))
         )
     }
 

@@ -17,6 +17,9 @@ import SwiftUI
 @available(*, deprecated, renamed: "Callouts.ActionCallout")
 public typealias ActionCallout = Callouts.ActionCallout
 
+@available(*, deprecated, renamed: "InputSet")
+public typealias AlphabeticInputSet = InputSet
+
 @available(*, deprecated, renamed: "AudioFeedback.Configuration")
 public typealias AudioFeedbackConfiguration = AudioFeedback.Configuration
 
@@ -59,6 +62,9 @@ public typealias KeyboardEnabledLabel = KeyboardStateLabel
 @available(*, deprecated, renamed: "KeyboardStateInspector")
 public typealias KeyboardEnabledStateInspector = KeyboardStateInspector
 
+@available(*, deprecated, renamed: "InputSet")
+public typealias NumericInputSet = InputSet
+
 @available(*, deprecated, renamed: "Gestures.RepeatTimer")
 public typealias RepeatGestureTimer = Gestures.RepeatTimer
 
@@ -70,6 +76,9 @@ public typealias SpaceDragSensitivity = Gestures.SpaceDragSensitivity
 
 @available(*, deprecated, renamed: "Gestures.SpaceLongPressBehavior")
 public typealias SpaceLongPressBehavior = Gestures.SpaceLongPressBehavior
+
+@available(*, deprecated, renamed: "InputSet")
+public typealias SymbolicInputSet = InputSet
 
 @available(*, deprecated, renamed: "KeyboardButton.Button")
 public typealias SystemKeyboardButton = KeyboardButton.Button

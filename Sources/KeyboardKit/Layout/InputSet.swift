@@ -21,74 +21,10 @@ import Foundation
  ``standardSymbolic(currencies:)``. KeyboardKit Pro provides
  even more input sets like `qwertz` and `azerty`, as well as
  alphabetic, numeric and symbolic input sets for all locales.
- 
- > v8.0: This protocol will be converted to a `struct`, that
- will replace the various input set types with a single type.
  */
-public protocol InputSet: Equatable {
+public struct InputSet: Equatable {
     
-    var rows: InputSetRows { get }
-}
-
-public extension InputSet {
-    
-    static var english: AlphabeticInputSet { .qwerty }
-    
-    static var englishNumeric: NumericInputSet {
-        .englishNumeric()
-    }
-    
-    static func englishNumeric(
-        currency: String = "$"
-    ) -> NumericInputSet {
-        .standardNumeric(currency: currency)
-    }
-    
-    static var englishSymbolic: SymbolicInputSet {
-        .englishSymbolic()
-    }
-    
-    static func englishSymbolic(
-        currency: String = "£"
-    ) -> SymbolicInputSet {
-        .standardSymbolic(currencies: "€\(currency)¥".chars)
-    }
-    
-    static var qwerty: AlphabeticInputSet {
-        .init(rows: [
-            .init(chars: "qwertyuiop"),
-            .init(chars: "asdfghjkl"),
-            .init(phone: "zxcvbnm", pad: "zxcvbnm,.")
-        ])
-    }
-    
-    static func standardNumeric(currency: String) -> NumericInputSet {
-        NumericInputSet(rows: [
-            .init(chars: "1234567890"),
-            .init(phone: "-/:;()\(currency)&@”", pad: "@#\(currency)&*()’”"),
-            .init(phone: ".,?!’", pad: "%-+=/;:!?")
-        ])
-    }
-    
-    static func standardSymbolic(currencies: [String]) -> SymbolicInputSet {
-        SymbolicInputSet(rows: [
-            .init(phone: "[]{}#%^*+=", pad: "1234567890"),
-            .init(
-                phone: "_\\|~<>\(currencies.joined())•",
-                pad: "\(currencies.joined())_^[]{}"),
-            .init(phone: ".,?!’", pad: "§|~…\\<>!?")
-        ])
-    }
-}
-
-/**
- This input set can be used in alphabetic keyboards.
- 
- > v8.0: This will be replaced by the upcoming `InputSet`.
- */
-public struct AlphabeticInputSet: InputSet {
-
-    /// Create an alphabetic input set.
+    /// Create an input set.
     public init(rows: InputSetRows) {
         self.rows = rows
     }
@@ -97,30 +33,53 @@ public struct AlphabeticInputSet: InputSet {
     public var rows: InputSetRows
 }
 
-/**
- This input set can used in numeric keyboards.
- 
- > v8.0: This will be replaced by the upcoming `InputSet`.
- */
-public struct NumericInputSet: InputSet {
-
-    public init(rows: InputSetRows) {
-        self.rows = rows
+public extension InputSet {
+    
+    static var english: InputSet { .qwerty }
+    
+    static var englishNumeric: InputSet {
+        .englishNumeric()
     }
-
-    public var rows: InputSetRows
-}
-
-/**
- This input set can be used in symbolic keyboards.
- 
- > v8.0: This will be replaced by the upcoming `InputSet`.
- */
-public struct SymbolicInputSet: InputSet {
-
-    public init(rows: InputSetRows) {
-        self.rows = rows
+    
+    static func englishNumeric(
+        currency: String = "$"
+    ) -> InputSet {
+        .standardNumeric(currency: currency)
     }
-
-    public var rows: InputSetRows
+    
+    static var englishSymbolic: InputSet {
+        .englishSymbolic()
+    }
+    
+    static func englishSymbolic(
+        currency: String = "£"
+    ) -> InputSet {
+        .standardSymbolic(currencies: "€\(currency)¥".chars)
+    }
+    
+    static var qwerty: InputSet {
+        .init(rows: [
+            .init(chars: "qwertyuiop"),
+            .init(chars: "asdfghjkl"),
+            .init(phone: "zxcvbnm", pad: "zxcvbnm,.")
+        ])
+    }
+    
+    static func standardNumeric(currency: String) -> InputSet {
+        .init(rows: [
+            .init(chars: "1234567890"),
+            .init(phone: "-/:;()\(currency)&@”", pad: "@#\(currency)&*()’”"),
+            .init(phone: ".,?!’", pad: "%-+=/;:!?")
+        ])
+    }
+    
+    static func standardSymbolic(currencies: [String]) -> InputSet {
+        .init(rows: [
+            .init(phone: "[]{}#%^*+=", pad: "1234567890"),
+            .init(
+                phone: "_\\|~<>\(currencies.joined())•",
+                pad: "\(currencies.joined())_^[]{}"),
+            .init(phone: ".,?!’", pad: "§|~…\\<>!?")
+        ])
+    }
 }
